@@ -1,4 +1,4 @@
-import {DataTypes, Model, Sequelize} from 'sequelize'
+import {BelongsToGetAssociationMixin, DataTypes,  Model, Sequelize} from 'sequelize'
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
@@ -46,6 +46,8 @@ class Contract extends Model {
   declare status: string
   declare ClientId:number
   declare ContractorId: number
+  declare getContractor: BelongsToGetAssociationMixin<Profile>
+  declare getClient: BelongsToGetAssociationMixin<Profile>
 }
 Contract.init(
   {
@@ -70,6 +72,7 @@ class Job extends Model {
   declare paid: boolean
   declare paymentDate: Date
   declare ContractId: number
+  declare getContract: BelongsToGetAssociationMixin<Contract>
 }
 Job.init(
   {

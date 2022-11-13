@@ -57,6 +57,32 @@
 		{
 			"name": "/jobs/unpaid",
 			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "profile_id",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:3001/jobs/2/pay",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"jobs",
+						"2",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jobs/unpaid Copy",
+			"request": {
 				"method": "GET",
 				"header": [
 					{
