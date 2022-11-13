@@ -1,30 +1,37 @@
-const Sequelize = require('sequelize');
+import {DataTypes, Model, Sequelize} from 'sequelize'
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: './database.sqlite3'
 });
 
-class Profile extends Sequelize.Model {}
+class Profile extends Model {
+  declare id: number
+  declare firstName: string
+  declare lastName: string
+  declare profession: string
+  declare balance: number
+  declare type: string
+}
 Profile.init(
   {
     firstName: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     lastName: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     profession: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     balance:{
-      type:Sequelize.DECIMAL(12,2)
+      type:DataTypes.DECIMAL(12,2)
     },
     type: {
-      type: Sequelize.ENUM('client', 'contractor')
+      type: DataTypes.ENUM('client', 'contractor')
     }
   },
   {
@@ -33,15 +40,21 @@ Profile.init(
   }
 );
 
-class Contract extends Sequelize.Model {}
+class Contract extends Model {
+  declare id: number
+  declare terms: string
+  declare status: string
+  declare ClientId:number
+  declare ContractorId: number
+}
 Contract.init(
   {
     terms: {
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     status:{
-      type: Sequelize.ENUM('new','in_progress','terminated')
+      type: DataTypes.ENUM('new','in_progress','terminated')
     }
   },
   {
@@ -50,23 +63,30 @@ Contract.init(
   }
 );
 
-class Job extends Sequelize.Model {}
+class Job extends Model {
+  declare id: number
+  declare description: string
+  declare price: number
+  declare paid: boolean
+  declare paymentDate: Date
+  declare ContractId: number
+}
 Job.init(
   {
     description: {
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     price:{
-      type: Sequelize.DECIMAL(12,2),
+      type: DataTypes.DECIMAL(12,2),
       allowNull: false
     },
     paid: {
-      type: Sequelize.BOOLEAN,
-      default:false
+      type: DataTypes.BOOLEAN,
+      defaultValue:false
     },
     paymentDate:{
-      type: Sequelize.DATE
+      type: DataTypes.DATE
     }
   },
   {
@@ -82,7 +102,7 @@ Contract.belongsTo(Profile, {as: 'Client'})
 Contract.hasMany(Job)
 Job.belongsTo(Contract)
 
-module.exports = {
+export {
   sequelize,
   Profile,
   Contract,
