@@ -1,6 +1,19 @@
 # DEEL BACKEND TASK
 
-  
+See Postman Collection for easy usage
+
+## What would I do if I had more time?
+  * Stopped around the 3h mark, but added my ideas/ "how I would have solved those" if I had the time within the endpoints
+  * I adjusted the balance deposit endpoint as the userId param seemed unnecessary. And the functionality to pay for anothers client didn't seem useful/realistic to me
+  * Improve Postman Colleciton to use variables
+  * (Auto)Linting
+  * proper DDD:
+    * add queries for finding aggregateroots and implement finders for them   (e.g. ContractFinder class that handles finding contracts and then doesn't expose dependencies (like sequelize) into api layer)
+    * add commands for adjusting and creating aggregateroots to work with only domain objects (with domain logic & limitations) and add the commands as services to the api layer
+  * Dockerize the local server running -> this excludes issues with different local node versions and changing them with sth. like n or volta
+  * Dockerized integration tests & unit tests
+  * Github Action CI (& CD) -> run the unit and integration test in github action
+  * add the remaining getter and setter in the model
 
 💫 Welcome! 🎉
 

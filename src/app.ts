@@ -151,7 +151,58 @@ app.post('/balances/deposit', getProfile, async (req, res) => {
     profile.balance = profile.balance + depositAmount
     await profile.save()
     return res.status(200).end()
+})
 
+/**
+ * TODO: implement
+ * returns the profession that earned the most money
+ * @params:
+ *  start: Startdate
+ *  end: end Date
+ * @returns Returns the profession
+ */
+ app.post('/admin/best-profession', getProfile, async (req, res) => {
+    const {start, end} = req.query
+    console.log({start, end})
+
+    // ToDo
+    // parse the dates   
+    // work out a query that: 
+    // join the jobs with the contracts and profiles
+    // groups all jobs by profile
+    // filter for contractors
+    // filter jobs paid
+    // filter jobs that are in range
+    // sum up all jobs per records (that should be per contractor -> contractor, [1,2,3])
+    // order the earned money from largest to smallest
+    // return the first one
+    return res.status(200).end()
+})
+
+/**
+ * TODO: implement
+ * returns the clients that paid the most money
+ * @params:
+ *  start: Startdate
+ *  end: end Date
+ * limit: max amount of clients to be returned
+ * @returns Returns the clients
+ */
+ app.post('/admin/best-clients', getProfile, async (req, res) => {
+    const {start, end, limit=2} = req.query
+    console.log({start, end, limit})
+
+    // ToDo
+    // parse the dates   
+    // work out a query that: 
+    // join the jobs with the contracts and profiles
+    // groups all jobs by profile
+    // filter for clients
+    // filter jobs paid
+    // sum up all jobs per records (that should be per client -> client1, [1,2,3])
+    // order the paid money from largest to smallest
+    // return the clients and limit them with the provided query param
+    return res.status(200).end()
 })
 
 
