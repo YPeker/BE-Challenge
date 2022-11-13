@@ -1,4 +1,4 @@
-import {BelongsToGetAssociationMixin, DataTypes,  Model, Sequelize} from 'sequelize'
+import {BelongsToGetAssociationMixin, DataTypes,  Model, Sequelize,} from 'sequelize'
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',

@@ -57,6 +57,31 @@
 		{
 			"name": "/jobs/unpaid",
 			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "profile_id",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:3001/jobs/unpaid",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"jobs",
+						"unpaid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jobs/:job_id/pay",
+			"request": {
 				"method": "POST",
 				"header": [
 					{
@@ -81,9 +106,9 @@
 			"response": []
 		},
 		{
-			"name": "/jobs/unpaid Copy",
+			"name": "balances/deposit",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
 						"key": "profile_id",
@@ -92,14 +117,15 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:3001/jobs/unpaid",
+					"raw": "localhost:3001/jobs/2/pay",
 					"host": [
 						"localhost"
 					],
 					"port": "3001",
 					"path": [
 						"jobs",
-						"unpaid"
+						"2",
+						"pay"
 					]
 				}
 			},
