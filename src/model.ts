@@ -83,7 +83,7 @@ Job.init(
     },
     paid: {
       type: DataTypes.BOOLEAN,
-      defaultValue:false
+      defaultValue: DataTypes.BOOLEAN,
     },
     paymentDate:{
       type: DataTypes.DATE
