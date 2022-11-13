@@ -55,11 +55,13 @@ app.get('/contracts/:id',getProfile , async (req, res) =>{
                 {ClientId: id},
                 {ContractorId: id}
             ],
+            status: 'in_progress'
         }
     }]
 })
     if(!jobs) return res.status(404).end()
     res.json(jobs)
 })
+
 
 export { app } 
